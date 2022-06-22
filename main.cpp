@@ -22,7 +22,7 @@ void mostraVetorDATA(DATA data[]);
 void ordena(DATA data[]);
 void contaLogPorMes(DATA data[], int logPorMes[]);
 void countingSortMes(DATA data[], int exp);
-void sortLogsPorMes(DATA data[], int ind, int quantLogs);
+void divideLogsPorMes(DATA data[], int ind, int quantLogs);
 int valorMaximo(DATA data[]);
 void coutingSortLogsPorMes(DATA logsMes[], int exp, int quantLogs);
 
@@ -98,7 +98,7 @@ void ordena(DATA data[])
     mostraVetorDATA(data);
 
     for (int i = 0; i < 12; i++) {
-        sortLogsPorMes(data, ind, logPorMes[i]);
+        divideLogsPorMes(data, ind, logPorMes[i]);
         ind += logPorMes[i];
     }
 }
@@ -129,7 +129,7 @@ void countingSortMes(DATA data[], int exp)
 		data[i] = saida[i];
 }
 
-void sortLogsPorMes(DATA data[], int ind, int quantLogs) {
+void divideLogsPorMes(DATA data[], int ind, int quantLogs) {
     DATA logsMes[quantLogs];
     int max = valorMaximo(data);
 
