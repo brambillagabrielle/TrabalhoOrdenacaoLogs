@@ -19,7 +19,7 @@ int numeroMes(string mes);
 void leituraJSON(DATA data[]);
 void mostraVetorDATA(DATA data[]);
 
-void radixSort(DATA data[]);
+void ordena(DATA data[]);
 void contaLogPorMes(DATA data[], int logPorMes[]);
 void countingSortMes(DATA data[], int exp);
 void sortLogsPorMes(DATA data[], int ind, int quantLogs);
@@ -33,7 +33,7 @@ int main() {
 
     cout<< "\nDesordenado: \n";
     mostraVetorDATA(data);
-    radixSort(data);
+    ordena(data);
     cout<< "\nOrdenado pelos meses e logs: \n";
     mostraVetorDATA(data);
 
@@ -84,15 +84,15 @@ void mostraVetorDATA(DATA data[]) {
     }
 }
 
-void radixSort(DATA data[])
+void ordena(DATA data[])
 {
 	int logPorMes[12] = { 0 }, ind = 0;
     DATA *porMes;
 
-    contaLogPorMes(data, logPorMes);
-
     for (int exp = 1; 12 / exp > 0; exp *= 10)
 		countingSortMes(data, exp);
+
+    contaLogPorMes(data, logPorMes);
 
     cout<< "\nOrdenado pelos meses: \n";
     mostraVetorDATA(data);
